@@ -374,6 +374,25 @@
             .projects-grid { grid-template-columns: 1fr; }
             .stats-container { flex-direction: column; align-items: center; }
         }
+        .github-stats-container {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-top: 40px;
+            }
+            
+            .github-stats-img {
+              max-width: 100%;
+              height: auto;
+              margin: 10px;
+              border-radius: 10px;
+            }
+            @media (min-width: 600px) {
+              .github-stats-container {
+                flex-direction: row;
+                justify-content: center;
+              }
+            }
     </style>
 </head>
 <body>
@@ -517,9 +536,17 @@
                     <div class="stat-label">Tecnologías Dominadas</div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <img src="https://github-readme-stats.vercel.app/api?username=CHARLIGOMEZ1989&show_icons=true&theme=radical&hide_border=true" alt="Estadísticas de GitHub" style="margin: 10px; border-radius: 10px;">
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CHARLIGOMEZ1989&layout=compact&theme=radical&hide_border=true" alt="Lenguajes más usados" style="margin: 10px; border-radius: 10px;">
+            <div class="github-stats-container">
+              <img 
+                src="https://github-readme-stats.vercel.app/api?username=CHARLIGOMEZ1989&show_icons=true&theme=radical&hide_border=true"
+                alt="Estadísticas de GitHub"
+                class="github-stats-img"
+              >
+              <img 
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=CHARLIGOMEZ1989&layout=compact&theme=radical&hide_border=true"
+                alt="Lenguajes más usados"
+                class="github-stats-img"
+              >
             </div>
         </section>
 
