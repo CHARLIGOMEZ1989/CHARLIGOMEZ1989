@@ -368,7 +368,14 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .name { font-size: 2.5em; }
+            .name {
+                font-size: 2.2em;
+                white-space: normal;    /* Permite el salto de línea */
+                word-break: break-word; /* Corta la palabra si es necesario */
+                text-align: center;     /* Centra el texto */
+                max-width: 95vw;        /* Opcional: limita el ancho en móviles */
+                line-height: 1.1;       /* Opcional: mejora la separación entre líneas */
+            }
             .links { flex-direction: column; align-items: center; }
             .skills-grid { grid-template-columns: 1fr; }
             .projects-grid { grid-template-columns: 1fr; }
