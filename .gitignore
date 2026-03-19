@@ -1,0 +1,22 @@
+# Variables de entorno — NUNCA subir al repositorio
+.env
+
+# Entorno virtual de Python
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Índices vectoriales generados (pueden ser grandes)
+faiss_index/
+*.index
+
+# Archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db

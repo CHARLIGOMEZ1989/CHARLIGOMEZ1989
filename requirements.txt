@@ -1,0 +1,29 @@
+# Dependencias para el asistente de consultas en bases de datos y PDFs
+# Instalación: pip install -r requirements.txt
+
+# === Carga de variables de entorno ===
+python-dotenv>=1.0.0
+
+# === LangChain – núcleo ===
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-openai>=0.1.0
+
+# === Procesamiento de PDFs ===
+pypdf>=4.0.0          # PyPDFLoader (texto digital)
+pdfplumber>=0.10.0    # Alternativa con extracción avanzada de tablas
+
+# === Índice vectorial (búsqueda semántica) ===
+faiss-cpu>=1.7.4
+
+# === Bases de datos relacionales ===
+sqlalchemy>=2.0.0
+
+# Controladores por motor de base de datos (instala solo el que necesites):
+psycopg2-binary>=2.9.0    # PostgreSQL
+pymysql>=1.1.0             # MySQL / MariaDB
+# pyodbc>=4.0.0            # SQL Server (requiere ODBC Driver instalado en el sistema)
+# cx_Oracle>=8.3.0         # Oracle
+
+# === Soporte para modelos locales con Ollama (opcional) ===
+# ollama>=0.2.0            # Descomenta si usas Ollama como proveedor de LLM
