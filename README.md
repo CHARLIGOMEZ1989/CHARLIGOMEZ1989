@@ -1,11 +1,15 @@
 <p align="center">
-  <img src="https://avatars.githubusercontent.com/u/yourgithubuserid?v=4" width="140" alt="Foto de perfil"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=64B5F6&center=true&vCenter=true&width=500&lines=👋+¡Hola!+Soy+Carlos+Gómez;Ingeniero+Industrial+%2B+Dev;GIS+%7C+Python+%7C+JavaScript" alt="Typing SVG" />
+</p>
+
+<p align="center">
+  <img src="./foto_perfil.png" width="140" alt="Foto de perfil de Carlos Eduardo Gómez Rico"/>
 </p>
 
 <h1 align="center">👨‍💻 Hoja de Vida – Carlos Eduardo Gómez Rico</h1>
 
 <p align="center">
-  <a href="HV_CarlosEduardoGomezRico_2025.pdf"><b>Ver hoja de vida en PDF</b></a> •
+  <a href="HV_CEGR_2025.pdf"><b>Ver hoja de vida en PDF</b></a> •
   <a href="https://www.linkedin.com/in/carlos-eduardo-gómez-rico-842084128"><b>LinkedIn</b></a>
 </p>
 
@@ -68,7 +72,7 @@ Gráfico generado mediante secuencias en JavaScript, empleando librerías de la 
 
 ## 📁 Archivos
 
-- [HV_CarlosEduardoGomezRico_2025.pdf](HV_CarlosEduardoGomezRico_2025.pdf): Versión actualizada y completa de mi hoja de vida.
+- [HV_CEGR_2025.pdf](HV_CEGR_2025.pdf): Versión actualizada y completa de mi hoja de vida.
 
 ---
 
