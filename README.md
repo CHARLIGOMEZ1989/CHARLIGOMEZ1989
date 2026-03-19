@@ -72,6 +72,27 @@ Gráfico generado mediante secuencias en JavaScript, empleando librerías de la 
 
 ---
 
+## 🤖 Asistente de consultas en Bases de Datos y PDFs
+
+¿Quieres configurar un asistente inteligente que responda preguntas sobre tus documentos PDF
+y tu base de datos usando lenguaje natural?
+
+👉 **[Ver guía de configuración paso a paso](ASISTENTE_CONFIGURACION.md)**
+
+El asistente usa **LangChain + RAG** y soporta:
+- 📄 Consultas sobre PDFs (hojas de vida, informes, manuales)
+- 🗄️ Consultas SQL en PostgreSQL, MySQL, SQLite y SQL Server
+- 🦙 Modelos locales gratuitos con [Ollama](https://ollama.com/) o la API de OpenAI
+
+```bash
+# Inicio rápido
+pip install -r requirements.txt
+cp .env.example .env        # edita con tus credenciales
+python asistente_consultas.py
+```
+
+---
+
 ## ✉️ Contacto
 
 ¿Quieres trabajar conmigo o tienes una propuesta de colaboración?  
