@@ -400,6 +400,200 @@
                 justify-content: center;
               }
             }
+
+        /* ===== Asistente Virtual ===== */
+        #chat-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3f51b5, #7c4dff);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 24px rgba(63, 81, 181, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        #chat-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 32px rgba(124, 77, 255, 0.6);
+        }
+
+        #chat-window {
+            position: fixed;
+            bottom: 105px;
+            right: 30px;
+            width: 340px;
+            max-height: 500px;
+            background: rgba(12, 20, 69, 0.97);
+            border: 1px solid rgba(100, 181, 246, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            backdrop-filter: blur(14px);
+            animation: slideInUp 0.3s ease-out;
+        }
+        #chat-window.open {
+            display: flex;
+        }
+
+        #chat-header {
+            background: linear-gradient(135deg, #3f51b5, #7c4dff);
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #chat-header .chat-title {
+            font-size: 1em;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #chat-header .chat-title span.dot {
+            width: 10px;
+            height: 10px;
+            background: #69f0ae;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+        #chat-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.3em;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        #chat-close:hover { opacity: 1; }
+
+        #chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(100, 181, 246, 0.3) transparent;
+        }
+        #chat-messages::-webkit-scrollbar { width: 5px; }
+        #chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(100, 181, 246, 0.3);
+            border-radius: 3px;
+        }
+
+        .msg {
+            max-width: 88%;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 0.92em;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+        .msg.bot {
+            background: rgba(63, 81, 181, 0.25);
+            border: 1px solid rgba(100, 181, 246, 0.2);
+            color: #e3f2fd;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        .msg.user {
+            background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        .msg.typing {
+            background: rgba(63, 81, 181, 0.2);
+            border: 1px solid rgba(100, 181, 246, 0.15);
+            color: #90a4ae;
+            align-self: flex-start;
+            font-style: italic;
+            font-size: 0.85em;
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+            padding: 0 16px 10px;
+        }
+        .quick-reply-btn {
+            background: rgba(63, 81, 181, 0.3);
+            border: 1px solid rgba(100, 181, 246, 0.35);
+            color: #64b5f6;
+            padding: 6px 12px;
+            border-radius: 14px;
+            font-size: 0.82em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quick-reply-btn:hover {
+            background: rgba(63, 81, 181, 0.6);
+            border-color: #64b5f6;
+            color: #fff;
+        }
+
+        #chat-input-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        #chat-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(100, 181, 246, 0.25);
+            border-radius: 20px;
+            padding: 9px 14px;
+            color: #fff;
+            font-size: 0.9em;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        #chat-input::placeholder { color: #78909c; }
+        #chat-input:focus { border-color: #64b5f6; }
+        #chat-send {
+            background: linear-gradient(135deg, #3f51b5, #7c4dff);
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: #fff;
+        }
+        #chat-send:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 14px rgba(124, 77, 255, 0.5);
+        }
+
+        @media (max-width: 400px) {
+            #chat-window { width: calc(100vw - 20px); right: 10px; }
+            #chat-btn { right: 14px; bottom: 14px; }
+        }
     </style>
 </head>
 <body>
@@ -574,6 +768,24 @@
         </footer>
     </div>
 
+    <!-- ===== Asistente Virtual ===== -->
+    <button id="chat-btn" title="Habla con el asistente de Charlie" aria-label="Abrir asistente virtual">🤖</button>
+
+    <div id="chat-window" role="dialog" aria-label="Asistente virtual de Charlie">
+        <div id="chat-header">
+            <div class="chat-title">
+                <span class="dot"></span> Asistente de Charlie
+            </div>
+            <button id="chat-close" aria-label="Cerrar chat">✕</button>
+        </div>
+        <div id="chat-messages" aria-live="polite"></div>
+        <div class="quick-replies" id="quick-replies"></div>
+        <div id="chat-input-area">
+            <input id="chat-input" type="text" placeholder="Escribe tu pregunta…" maxlength="300" autocomplete="off" />
+            <button id="chat-send" aria-label="Enviar">➤</button>
+        </div>
+    </div>
+
     <script>
         // Crear partículas animadas
         function createParticles() {
@@ -633,6 +845,185 @@
                 particle.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
+
+        // ===== Asistente Virtual =====
+        (function () {
+            const btn        = document.getElementById('chat-btn');
+            const win        = document.getElementById('chat-window');
+            const closeBtn   = document.getElementById('chat-close');
+            const messages   = document.getElementById('chat-messages');
+            const input      = document.getElementById('chat-input');
+            const sendBtn    = document.getElementById('chat-send');
+            const qrContainer = document.getElementById('quick-replies');
+
+            // Base de conocimiento sobre Carlos
+            const KB = [
+                {
+                    keys: ['hola', 'buenos', 'buenas', 'hey', 'saludos', 'qué tal', 'que tal'],
+                    answer: '¡Hola! 👋 Soy el asistente virtual de Carlos. Puedo contarte sobre su experiencia, habilidades, proyectos y cómo contactarlo. ¿Qué quieres saber?'
+                },
+                {
+                    keys: ['quién es', 'quien es', 'perfil', 'sobre', 'acerca', 'presentación', 'presentacion'],
+                    answer: 'Carlos Eduardo Gómez Rico es Ingeniero Industrial con posgrado en Desarrollo de Software. Tiene más de <strong>10 años de experiencia</strong> liderando proyectos en GIS, automatización de procesos, análisis espacial y desarrollo de soluciones tecnológicas para el sector público y privado. 🚀'
+                },
+                {
+                    keys: ['experiencia', 'años', 'trayectoria', 'sector', 'trabajo'],
+                    answer: 'Carlos tiene más de <strong>10 años de experiencia</strong> profesional. Ha trabajado con entidades del sector público y privado liderando proyectos de GIS, automatización, análisis espacial y desarrollo de software a medida. 💼'
+                },
+                {
+                    keys: ['habilidad', 'tecnolog', 'lenguaje', 'skill', 'domina', 'sabe', 'conoce', 'herramienta'],
+                    answer: 'Carlos domina un amplio stack tecnológico:<br>🗄️ <strong>Bases de datos:</strong> PostgreSQL, MySQL, SQL Server, SQLite<br>💻 <strong>Lenguajes:</strong> Python, JavaScript, SQL, HTML, CSS, VBA<br>🗺️ <strong>GIS:</strong> ArcGIS Pro, QGIS, gvSIG<br>⚙️ <strong>Frameworks:</strong> Flask, Flutter<br>📊 <strong>BI:</strong> Power BI, pandas, Leaflet, Mapbox<br>🤖 <strong>Automatización:</strong> Excel VBA, formularios móviles, procesamiento espacial'
+                },
+                {
+                    keys: ['python'],
+                    answer: 'Python es uno de los lenguajes principales de Carlos. Lo usa para análisis de datos con <strong>pandas</strong>, desarrollo con <strong>Flask</strong>, automatización y procesamiento espacial. 🐍'
+                },
+                {
+                    keys: ['javascript', 'js'],
+                    answer: 'Carlos usa JavaScript para desarrollo web e integración con librerías de mapas como <strong>Leaflet</strong> y <strong>Mapbox</strong>, así como para visualizaciones de datos geoespaciales. 🌐'
+                },
+                {
+                    keys: ['gis', 'geografía', 'geografia', 'espacial', 'mapas', 'arcgis', 'qgis'],
+                    answer: 'El GIS es una de las grandes especialidades de Carlos. Trabaja con <strong>ArcGIS Pro, QGIS y gvSIG</strong> para análisis geoespacial, representación de datos de campo y estudios de suelos. 🗺️'
+                },
+                {
+                    keys: ['proyecto', 'trabajo', 'portfolio', 'portafolio'],
+                    answer: 'Entre sus proyectos destacados están:<br>🗺️ <strong>Representación espacial de datos de campo</strong> con herramientas SIG<br>🌱 <strong>Visualización de horizontes de suelos</strong> con JavaScript y la suite AQP/Soil Taxonomy<br>Ambos demuestran su capacidad de combinar GIS con programación avanzada.'
+                },
+                {
+                    keys: ['suelo', 'horizonte', 'edáfico', 'edafic', 'soil'],
+                    answer: '🌱 Carlos desarrolló una herramienta en JavaScript que usa la suite <strong>AQP y Soil Taxonomy</strong> para visualizar y comparar horizontes de suelos conforme a estándares internacionales. ¡Un trabajo muy especializado!'
+                },
+                {
+                    keys: ['power bi', 'powerbi', 'bi', 'datos', 'análisis', 'analisis', 'visualiz'],
+                    answer: 'Carlos tiene experiencia en <strong>Power BI</strong> y análisis de datos con <strong>pandas</strong>. Su enfoque combina la ingeniería con la visualización de datos para generar insights accionables. 📊'
+                },
+                {
+                    keys: ['flutter', 'móvil', 'movil', 'android', 'app', 'aplicación', 'aplicacion'],
+                    answer: 'Carlos trabaja con <strong>Flutter</strong> y Android Studio para el desarrollo de aplicaciones móviles. También ha desarrollado formularios móviles para la recolección de datos en campo. 📱'
+                },
+                {
+                    keys: ['contacto', 'contactar', 'email', 'correo', 'mail', 'escribir', 'comunicar'],
+                    answer: '¡Con gusto! Puedes contactar a Carlos en:<br>📧 <strong><a href="mailto:ing.carlosgomez0219@gmail.com" style="color:#64b5f6;">ing.carlosgomez0219@gmail.com</a></strong><br>💼 <strong><a href="https://www.linkedin.com/in/carlos-eduardo-gómez-rico-842084128" target="_blank" style="color:#64b5f6;">LinkedIn</a></strong>'
+                },
+                {
+                    keys: ['linkedin'],
+                    answer: '🔗 Puedes ver el perfil profesional de Carlos en LinkedIn: <a href="https://www.linkedin.com/in/carlos-eduardo-gómez-rico-842084128" target="_blank" style="color:#64b5f6;">Carlos Eduardo Gómez Rico</a>'
+                },
+                {
+                    keys: ['cv', 'hoja de vida', 'curriculum', 'pdf', 'descargar', 'documento'],
+                    answer: '📄 Puedes ver y descargar la hoja de vida de Carlos en formato PDF directamente desde esta página, en el botón <strong>"Ver Hoja de Vida (PDF)"</strong> del encabezado.'
+                },
+                {
+                    keys: ['bogotá', 'bogota', 'colombia', 'ubicación', 'ubicacion', 'ciudad', 'donde'],
+                    answer: '📍 Carlos está ubicado en <strong>Bogotá, Colombia</strong> y está disponible tanto para proyectos locales como remotos.'
+                },
+                {
+                    keys: ['disponible', 'contratar', 'propuesta', 'colaborar', 'trabajo', 'oferta', 'freelance'],
+                    answer: '¡Carlos está abierto a propuestas! 🙌 Tanto para proyectos freelance, colaboraciones o empleos. Puedes escribirle a <strong><a href="mailto:ing.carlosgomez0219@gmail.com" style="color:#64b5f6;">ing.carlosgomez0219@gmail.com</a></strong>'
+                },
+                {
+                    keys: ['flask', 'backend', 'api', 'servidor'],
+                    answer: 'Para desarrollo backend Carlos usa <strong>Flask</strong> (Python), con el cual crea APIs y servidores de datos para sus soluciones GIS y de automatización. ⚙️'
+                },
+                {
+                    keys: ['postgre', 'mysql', 'sql', 'base de dato', 'database', 'bd'],
+                    answer: 'Carlos maneja múltiples motores de bases de datos:<br>🐘 <strong>PostgreSQL</strong> (incluyendo PostGIS para datos espaciales)<br>🐬 <strong>MySQL</strong><br>🪟 <strong>SQL Server</strong><br>💾 <strong>SQLite</strong>'
+                },
+                {
+                    keys: ['github', 'repositorio', 'código', 'codigo', 'open source'],
+                    answer: '💻 Puedes ver las estadísticas y repositorios de Carlos en GitHub. Su usuario es <strong>CHARLIGOMEZ1989</strong>. ¡En esta misma página puedes ver sus estadísticas!'
+                },
+                {
+                    keys: ['gracias', 'excelente', 'genial', 'perfecto', 'ok', 'entendido', 'listo'],
+                    answer: '¡Con mucho gusto! 😊 Si tienes más preguntas sobre Carlos o sus proyectos, aquí estaré. ¡Que tengas un excelente día!'
+                },
+                {
+                    keys: ['adios', 'adiós', 'bye', 'chao', 'hasta luego', 'hasta pronto'],
+                    answer: '¡Hasta pronto! 👋 Fue un placer ayudarte. Si necesitas algo más, vuelve cuando quieras.'
+                }
+            ];
+
+            const DEFAULT_RESPONSE = 'Mmm, no estoy seguro de esa pregunta. 🤔 Puedo contarte sobre la <strong>experiencia</strong>, <strong>habilidades</strong>, <strong>proyectos</strong> o <strong>contacto</strong> de Carlos. ¿Qué te gustaría saber?';
+
+            const QUICK_REPLIES = [
+                '¿Quién es Carlos?', '¿Qué habilidades tiene?',
+                '¿Qué proyectos ha hecho?', '¿Cómo contactarlo?'
+            ];
+
+            function normalize(str) {
+                return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            }
+
+            function getResponse(text) {
+                const lower = normalize(text);
+                for (const entry of KB) {
+                    if (entry.keys.some(k => lower.includes(normalize(k)))) {
+                        return entry.answer;
+                    }
+                }
+                return DEFAULT_RESPONSE;
+            }
+
+            function appendMsg(text, type) {
+                const div = document.createElement('div');
+                div.className = 'msg ' + type;
+                if (type === 'user') {
+                    div.textContent = text;
+                } else {
+                    div.innerHTML = text;
+                }
+                messages.appendChild(div);
+                messages.scrollTop = messages.scrollHeight;
+                return div;
+            }
+
+            function showQuickReplies() {
+                qrContainer.innerHTML = '';
+                QUICK_REPLIES.forEach(label => {
+                    const btn = document.createElement('button');
+                    btn.className = 'quick-reply-btn';
+                    btn.textContent = label;
+                    btn.addEventListener('click', () => handleSend(label));
+                    qrContainer.appendChild(btn);
+                });
+            }
+
+            function handleSend(text) {
+                const trimmed = (text || input.value).trim();
+                if (!trimmed) return;
+                input.value = '';
+                qrContainer.innerHTML = '';
+                appendMsg(trimmed, 'user');
+
+                // Simular "escribiendo…"
+                const typing = appendMsg('✍️ Escribiendo…', 'typing');
+                setTimeout(() => {
+                    typing.remove();
+                    const resp = getResponse(trimmed);
+                    appendMsg(resp, 'bot');
+                    showQuickReplies();
+                }, 600);
+            }
+
+            // Eventos
+            btn.addEventListener('click', () => {
+                win.classList.toggle('open');
+                if (win.classList.contains('open') && messages.children.length === 0) {
+                    appendMsg('¡Hola! 👋 Soy el asistente virtual de <strong>Carlos Eduardo Gómez Rico</strong>. ¿En qué puedo ayudarte hoy?', 'bot');
+                    showQuickReplies();
+                    setTimeout(() => input.focus(), 100);
+                }
+            });
+
+            closeBtn.addEventListener('click', () => win.classList.remove('open'));
+
+            sendBtn.addEventListener('click', () => handleSend());
+
+            input.addEventListener('keydown', e => {
+                if (e.key === 'Enter') handleSend();
+            });
+        })();
     </script>
 </body>
 </html>
